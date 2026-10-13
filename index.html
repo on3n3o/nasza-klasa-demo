@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nasza-klasa.pl ? nostalgiczny mockup</title>
+    <style>
+        :root {
+            --dark: #155277;
+            --nav: #1b6b99;
+            --blue: #337ca9;
+            --pale: #eaf3f8;
+            --line: #c4d6e2;
+            --text: #273d4c;
+            --link: #126b9d
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font: 12px/1.5 Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: #80b932;
+            background-image: linear-gradient(90deg, #77b429, #99c84e 50%, #77b429)
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        .wrap {
+            max-width: 1020px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 6px 24px #2a5c2060;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #c5d9c3
+        }
+
+        .top {
+            height: 104px;
+            background: linear-gradient(#054669, #16648c 65%, #3688ae);
+            padding: 17px 22px 8px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            color: white
+        }
+
+        .logo {
+            font-size: 31px;
+            font-weight: bold;
+            letter-spacing: -1.7px;
+            line-height: 1
+        }
+
+        .logo span {
+            color: #b9e14f
+        }
+
+        .logo small {
+            display: block;
+            color: #d8ebf4;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: normal;
+            margin: 7px 0 0 3px
+        }
+
+        .toplinks {
+            font-size: 11px;
+            color: #e8f5ff;
+            text-align: right
+        }
+
+        .toplinks a {
+            color: white;
+            margin-left: 15px
+        }
+
+        .today {
+            margin-top: 14px;
+            color: #cae4f0
+        }
+
+        nav {
+            background: linear-gradient(#eef6fb, #b6d4e5);
+            display: flex;
+            gap: 3px;
+            padding: 7px 15px 0;
+            border-bottom: 4px solid #397fa3;
+            overflow: auto
+        }
+
+        nav button {
+            border: 1px solid #9ab9cd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            background: linear-gradient(white, #d9e8f1);
+            color: #205a79;
+            font-weight: bold;
+            min-width: 110px;
+            padding: 9px 12px;
+            white-space: nowrap
+        }
+
+        nav button.active,
+        nav button:hover {
+            background: white;
+            color: #075889
+        }
+
+        .subnav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #e2eef5;
+            border-bottom: 1px solid #c2d9e6;
+            padding: 7px 17px;
+            color: #628095
+        }
+
+        .subnav strong {
+            color: #366a87
+        }
+
+        .subnav input {
+            width: 220px;
+            border: 1px solid #aac2d2;
+            border-radius: 2px;
+            padding: 5px 8px;
+            background: white
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 216px minmax(0, 1fr) 209px;
+            gap: 14px;
+            padding: 16px
+        }
+
+        .panel {
+            border: 1px solid var(--line);
+            margin-bottom: 14px;
+            background: #fff
+        }
+
+        .panel h2,
+        .sectionhead {
+            font-size: 12px;
+            background: linear-gradient(#eaf4f9, #c7e0ed);
+            border-bottom: 1px solid var(--line);
+            color: #305e7b;
+            margin: 0;
+            padding: 7px 9px;
+            font-weight: bold
+        }
+
+        .panel .inside {
+            padding: 10px
+        }
+
+        .profilepic {
+            height: 160px;
+            background: #d2e6ec;
+            border: 5px solid #fff;
+            outline: 1px solid #cadce5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3px 6px 10px;
+            color: #1d6d8c
+        }
+
+        .avatar {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 31px;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(145deg, #77bcd5, #236f98);
+            flex-shrink: 0
+        }
+
+        .profilepic .avatar {
+            width: 103px;
+            height: 103px;
+            font-size: 44px
+        }
+
+        .person {
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #166591
+        }
+
+        .muted {
+            color: #8199a6
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .small {
+            font-size: 11px
+        }
+
+        .button {
+            background: linear-gradient(#81b5d2, #2274a1);
+            color: white;
+            border: 1px solid #277399;
+            border-radius: 3px;
+            padding: 6px 9px;
+            font-weight: bold
+        }
+
+        .button:hover {
+            filter: brightness(.95)
+        }
+
+        .button.secondary {
+            background: linear-gradient(white, #dbeaf2);
+            color: #276d96;
+            border-color: #bdd2e0
+        }
+
+        .full {
+            width: 100%
+        }
+
+        .menu {
+            padding: 3px 0
+        }
+
+        .menu a {
+            display: block;
+            padding: 7px 10px;
+            border-bottom: 1px dotted #d8e4ea
+        }
+
+        .menu a::before {
+            content: '?';
+            color: #e6a900;
+            font-weight: bold;
+            margin-right: 9px
+        }
+
+        .menu a:hover {
+            background: #f1f7fa
+        }
+
+        .count {
+            float: right;
+            background: #e0edf3;
+            border-radius: 3px;
+            padding: 0 4px
+        }
+
+        .badge {
+            background: #e49b29;
+            color: white;
+            border-radius: 3px;
+            padding: 1px 5px;
+            font-size: 10px
+        }
+
+        .friendgrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 5px
+        }
+
+        .friend {
+            text-align: center;
+            min-width: 0;
+            font-size: 10px
+        }
+
+        .friend .avatar {
+            height: 49px;
+            width: 49px;
+            font-size: 19px;
+            border-radius: 2px;
+            margin: 0 auto 4px
+        }
+
+        .friend a {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .onefriend {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 0;
+            border-bottom: 1px dotted #d9e5ea
+        }
+
+        .onefriend .avatar {
+            width: 37px;
+            height: 37px;
+            font-size: 14px;
+            border-radius: 3px
+        }
+
+        .onefriend:last-child {
+            border: 0
+        }
+
+        .online {
+            color: #55a52d
+        }
+
+        .welcome {
+            background: linear-gradient(100deg, #d8eef8, #f5fbff);
+            border: 1px solid #bfdae9;
+            padding: 13px 15px;
+            margin-bottom: 14px
+        }
+
+        .welcome h1 {
+            font-size: 20px;
+            line-height: 1.2;
+            color: #15638c;
+            margin: 0 0 5px
+        }
+
+        .welcome p {
+            margin: 0;
+            color: #55798e
+        }
+
+        .composer {
+            padding: 11px
+        }
+
+        .composer textarea {
+            display: block;
+            width: 100%;
+            resize: vertical;
+            min-height: 65px;
+            padding: 9px;
+            border: 1px solid #b7cfdc;
+            background: #fcfeff
+        }
+
+        .composebottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px
+        }
+
+        .feed {
+            padding: 12px;
+            border-bottom: 1px solid #d8e6ed
+        }
+
+        .feed:last-child {
+            border-bottom: 0
+        }
+
+        .feedtop {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .feedtop .avatar {
+            height: 43px;
+            width: 43px;
+            font-size: 18px;
+            border-radius: 3px
+        }
+
+        .feedname {
+            font-weight: bold;
+            font-size: 13px
+        }
+
+        .feedtime {
+            font-size: 10px;
+            color: #8ca2af
+        }
+
+        .feed p {
+            margin: 11px 0 9px;
+            font-size: 12px;
+            line-height: 1.7
+        }
+
+        .feedactions {
+            display: flex;
+            gap: 15px;
+            font-size: 11px;
+            margin-top: 9px
+        }
+
+        .feedactions button {
+            background: none;
+            border: 0;
+            color: #2277a5;
+            padding: 0
+        }
+
+        .photo {
+            border: 1px solid #c7dce8;
+            background: linear-gradient(140deg, #c8e3e8, #6aa9af);
+            height: 135px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 8px 0;
+            color: #fff;
+            font-size: 55px
+        }
+
+        .photo.classphoto {
+            background: linear-gradient(135deg, #eddba9, #81a889)
+        }
+
+        .notification {
+            padding: 9px 7px;
+            border-bottom: 1px dotted #d6e4ed
+        }
+
+        .notification:last-child {
+            border: 0
+        }
+
+        .schools {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .schools li {
+            padding: 10px 0;
+            border-bottom: 1px dotted #d5e2e9
+        }
+
+        .schools li:last-child {
+            border: 0
+        }
+
+        .school-icon {
+            display: inline-block;
+            background: #dfebf1;
+            border: 1px solid #bdd6e3;
+            padding: 5px;
+            margin-right: 5px
+        }
+
+        .footer {
+            margin-top: 6px;
+            border-top: 1px solid #d1e1e9;
+            background: #f0f6f9;
+            padding: 15px;
+            text-align: center;
+            color: #8098a5;
+            font-size: 10px
+        }
+
+        .footer a {
+            margin: 0 5px
+        }
+
+        .hidden {
+            display: none !important
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 18px;
+            right: 18px;
+            background: #155277;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px #0003;
+            display: none;
+            z-index: 10
+        }
+
+        @media(max-width:850px) {
+            .wrap {
+                margin: 0;
+                border-radius: 0
+            }
+
+            .content {
+                grid-template-columns: 190px minmax(0, 1fr)
+            }
+
+            .right {
+                display: none
+            }
+
+            .top {
+                height: 96px
+            }
+
+            nav button {
+                min-width: 92px
+            }
+        }
+
+        @media(max-width:570px) {
+            .top {
+                padding: 15px;
+                height: 88px
+            }
+
+            .logo {
+                font-size: 25px
+            }
+
+            .logo small {
+                font-size: 8px
+            }
+
+            .today {
+                display: none
+            }
+
+            .toplinks {
+                font-size: 10px
+            }
+
+            .toplinks a {
+                display: block;
+                margin-bottom: 4px
+            }
+
+            .subnav input {
+                width: 128px
+            }
+
+            .content {
+                display: block;
+                padding: 10px
+            }
+
+            .left {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
+            }
+
+            .left .panel {
+                margin-bottom: 2px
+            }
+
+            .left .panel:nth-child(n+3) {
+                display: none
+            }
+
+            .profilepic {
+                height: 75px
+            }
+
+            .profilepic .avatar {
+                height: 55px;
+                width: 55px;
+                font-size: 22px
+            }
+
+            .menu a {
+                padding: 5px
+            }
+
+            .welcome h1 {
+                font-size: 17px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="top">
+            <div>
+                <div class="logo"><span>nasza</span>-klasa.pl</div>
+                <div class="logo"><small>PORTAL DLA LUDZI Z KLAS?</small></div>
+            </div>
+            <div class="toplinks">
+                <div><a href="#">Wiadomo?ci</a><a href="#">Edytuj profil</a><a href="#">Pomoc</a><a href="#">Wyloguj</a>
+                </div>
+                <div class="today">Witaj ponownie, Aniu! ?</div>
+            </div>
+        </header>
+        <nav aria-label="Menu g?ówne"><button class="active" data-tab="glowna">Strona g?ówna</button><button
+                data-tab="szkoly">Szko?y</button><button data-tab="znajomi">Znajomi</button><button
+                data-tab="poczta">Poczta</button><button data-tab="forum">Forum</button></nav>
+        <div class="subnav"><span><strong>Strona g?ówna</strong> &nbsp;?&nbsp; Co nowego u znajomych?</span><input
+                id="search" placeholder="Szukaj znajomych..." aria-label="Szukaj znajomych"></div>
+        <div class="content">
+            <aside class="left">
+                <section class="panel">
+                    <h2>Twój profil</h2>
+                    <div class="inside">
+                        <div class="profilepic">
+                            <div class="avatar">AK</div>
+                        </div>
+                        <div class="person">Anna Kowalska</div>
+                        <div class="center muted small">Wroc?aw · ostatnio online</div>
+                        <p class="center" style="margin-bottom:0"><button class="button secondary full"
+                                id="profileButton">Zobacz swój profil</button></p>
+                    </div>
+                </section>
+                <section class="panel">
+                    <h2>Menu u?ytkownika</h2>
+                    <div class="menu"><a href="#" data-action="Moje zdj?cia">Moje zdj?cia <span
+                                class="count">24</span></a><a href="#" data-action="Moje klasy">Moje klasy <span
+                                class="count">3</span></a><a href="#" data-action="Lista znajomych">Lista znajomych
+                            <span class="count">128</span></a><a href="#" data-action="Wiadomo?ci">Wiadomo?ci <span
+                                class="badge">2 nowe</span></a><a href="#" data-action="Odwiedziny">Kto mnie
+                            odwiedzi??</a><a href="#" data-action="Ustawienia">Ustawienia</a></div>
+                </section>
+                <section class="panel">
+                    <h2>Twoje szko?y i klasy</h2>
+                    <div class="inside">
+                        <ul class="schools">
+                            <li><span class="school-icon">?</span><a href="#">SP nr 12 we Wroc?awiu</a>
+                                <div class="muted small">Klasa 8B · 2006</div>
+                            </li>
+                            <li><span class="school-icon">?</span><a href="#">LO nr III we Wroc?awiu</a>
+                                <div class="muted small">Klasa 3C · 2009</div>
+                            </li>
+                        </ul><button class="button secondary full" data-action="Znajd? swoj? szko??">Znajd? swoj? szko??
+                            »</button>
+                    </div>
+                </section>
+            </aside>
+            <main>
+                <div id="view-glowna" class="view">
+                    <div class="welcome">
+                        <h1>Witaj na Naszej Klasie, Aniu!</h1>
+                        <p>Odnajd? dawnych znajomych, zobacz zdj?cia z klasowych spotka? i b?d? na bie??co.</p>
+                    </div>
+                    <section class="panel">
+                        <h2>Co u Ciebie s?ycha??</h2>
+                        <div class="composer"><textarea id="newPost"
+                                placeholder="Podziel si? wiadomo?ci? ze znajomymi..."></textarea>
+                            <div class="composebottom"><span class="muted">? Podziel si? wspomnieniem</span><button
+                                    class="button" id="publish">Opublikuj »</button></div>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <h2>Ostatnia aktywno?? Twoich znajomych</h2>
+                        <div id="feedList">
+                            <article class="feed">
+                                <div class="feedtop">
+                                    <div class="avatar" style="background:linear-gradient(135deg,#d09f7e,#9d5974)">MK
+                                    </div>
+                                    <div><a class="feedname" href="#">Magdalena Kwiatkowska</a>
+                                        <div class="feedtime">Dzisiaj o 11:24</div>
+                                    </div>
+                                </div>
+                                <p>Znalaz?am stare zdj?cia z naszej wycieczki klasowej do Krakowa! ? Kto pami?ta ten
+                                    wyjazd?</p>
+                                <div class="photo classphoto">? ? ?</div>
+                                <div class="feedactions"><button class="like">? Lubi? to (12)</button><button
+                                        class="comment">Dodaj komentarz</button></div>
+                            </article>
+                            <article class="feed">
+                                <div class="feedtop">
+                                    <div class="avatar" style="background:linear-gradient(135deg,#5d9ac3,#3c586f)">PT
+                                    </div>
+                                    <div><a class="feedname" href="#">Piotr Tomaszewski</a>
+                                        <div class="feedtime">Wczoraj o 19:08</div>
+                                    </div>
+                                </div>
+                                <p>Cze?? wszystkim! Organizujemy spotkanie klasy 3C. Mo?e sobota w przysz?ym miesi?cu?
+                                    Dajcie zna?, kto jest ch?tny!</p>
+                                <div class="feedactions"><button class="like">? Lubi? to (8)</button><button
+                                        class="comment">Dodaj komentarz</button></div>
+                            </article>
+                            <article class="feed">
+                                <div class="feedtop">
+                                    <div class="avatar" style="background:linear-gradient(135deg,#82a96a,#407e71)">KN
+                                    </div>
+                                    <div><a class="feedname" href="#">Kasia Nowak</a>
+                                        <div class="feedtime">Poniedzia?ek o 16:40</div>
+                                    </div>
+                                </div>
+                                <p>Doda?am 15 nowych zdj?? do albumu <a href="#">?Nasza klasa po latach?</a>. Poznajecie
+                                    wszystkich? ?</p>
+                                <div class="feedactions"><button class="like">? Lubi? to (24)</button><button
+                                        class="comment">Dodaj komentarz</button></div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+                <div id="view-other" class="view hidden">
+                    <div class="welcome">
+                        <h1 id="otherTitle">Szko?y</h1>
+                        <p id="otherSubtitle">Wspomnienia zaczynaj? si? od szkolnej ?awki.</p>
+                    </div>
+                    <section class="panel">
+                        <h2 id="otherHeading">Znajd? swoj? szko??</h2>
+                        <div class="inside" id="otherContent"></div>
+                    </section>
+                </div>
+            </main>
+            <aside class="right">
+                <section class="panel">
+                    <h2>Twoi znajomi <a href="#" style="float:right;font-weight:normal">wszyscy »</a></h2>
+                    <div class="inside">
+                        <div class="friendgrid" id="friends">
+                            <div class="friend" data-name="magdalena kwiatkowska">
+                                <div class="avatar" style="background:#b77c77">MK</div><a href="#">Magda</a>
+                            </div>
+                            <div class="friend" data-name="piotr tomaszewski">
+                                <div class="avatar" style="background:#628ca7">PT</div><a href="#">Piotr</a>
+                            </div>
+                            <div class="friend" data-name="kasia nowak">
+                                <div class="avatar" style="background:#8b9c64">KN</div><a href="#">Kasia</a>
+                            </div>
+                            <div class="friend" data-name="tomek wi?niewski">
+                                <div class="avatar" style="background:#c59a4f">TW</div><a href="#">Tomek</a>
+                            </div>
+                            <div class="friend" data-name="ewa zieli?ska">
+                                <div class="avatar" style="background:#9b76a7">EZ</div><a href="#">Ewa</a>
+                            </div>
+                            <div class="friend" data-name="bartek mazur">
+                                <div class="avatar" style="background:#648f90">BM</div><a href="#">Bartek</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <h2>Znajomi online <span class="online">? 3</span></h2>
+                    <div class="inside">
+                        <div class="onefriend">
+                            <div class="avatar" style="background:#b77c77">MK</div>
+                            <div><a href="#">Magda Kwiatkowska</a>
+                                <div class="online small">? dost?pna</div>
+                            </div>
+                        </div>
+                        <div class="onefriend">
+                            <div class="avatar" style="background:#628ca7">PT</div>
+                            <div><a href="#">Piotr Tomaszewski</a>
+                                <div class="online small">? dost?pny</div>
+                            </div>
+                        </div>
+                        <div class="onefriend">
+                            <div class="avatar" style="background:#9b76a7">EZ</div>
+                            <div><a href="#">Ewa Zieli?ska</a>
+                                <div class="online small">? dost?pna</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <h2>Powiadomienia</h2>
+                    <div class="inside">
+                        <div class="notification">? <a href="#">2 nowe wiadomo?ci</a></div>
+                        <div class="notification">? <a href="#">Magda doda?a zdj?cia</a></div>
+                        <div class="notification">? <a href="#">Spotkanie absolwentów 3C</a></div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+        <footer class="footer"><a href="#">O nas</a> | <a href="#">Pomoc</a> | <a href="#">Regulamin</a> | <a
+                href="#">Prywatno??</a> | <a href="#">Kontakt</a>
+            <p>© 2026 Projekt demonstracyjny ? nostalgiczny mockup inspirowany nasza-klasa.pl. Nie jest oficjaln? stron?
+                serwisu.</p>
+        </footer>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script>
+        const toast = document.getElementById('toast'); let toastTimer; function notice(message) { toast.textContent = message; toast.style.display = 'block'; clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.style.display = 'none', 2500) }
+        const views = { szkoly: ['Szko?y', 'Odnajd? swoj? dawn? klas? i szkolnych znajomych.', 'Wyszukaj szko??', '<p><label>Miasto <input id="city" placeholder="np. Wroc?aw" style="padding:7px;border:1px solid #b7cfdc;width:100%;margin:5px 0 12px"></label></p><button class="button" onclick="notice(\'To tylko demonstracyjny mockup.\')">Szukaj szko?y »</button><p class="muted">Twoje szko?y: SP nr 12, LO nr III</p>'], znajomi: ['Znajomi', 'Znajomi ze szkolnych lat s? na wyci?gni?cie r?ki.', 'Twoja lista znajomych', '<p><a href="#">Magdalena Kwiatkowska</a> · <a href="#">Piotr Tomaszewski</a> · <a href="#">Kasia Nowak</a></p><p><a href="#">Ewa Zieli?ska</a> · <a href="#">Tomek Wi?niewski</a> · <a href="#">Bartek Mazur</a></p>'], poczta: ['Poczta', 'Pozosta? w kontakcie z kolegami i kole?ankami.', 'Skrzynka odbiorcza', '<p>? <strong>Magda Kwiatkowska</strong> ? Zobacz zdj?cia z wycieczki! <span class="badge">nowa</span></p><hr><p>? <strong>Piotr Tomaszewski</strong> ? Spotkanie klasowe <span class="badge">nowa</span></p>'], forum: ['Forum', 'Porozmawiaj z dawnymi znajomymi.', 'Ostatnie tematy', '<p><a href="#">Nasza klasa 3C ? spotkanie po latach</a> (18 odpowiedzi)</p><hr><p><a href="#">Pami?tacie szkoln? wycieczk??</a> (12 odpowiedzi)</p>'] };
+        document.querySelectorAll('nav button').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('nav button').forEach(x => x.classList.remove('active')); btn.classList.add('active'); const k = btn.dataset.tab; document.getElementById('view-glowna').classList.toggle('hidden', k !== 'glowna'); document.getElementById('view-other').classList.toggle('hidden', k === 'glowna'); document.querySelector('.subnav strong').textContent = btn.textContent; if (k !== 'glowna') { const v = views[k]; document.getElementById('otherTitle').textContent = v[0]; document.getElementById('otherSubtitle').textContent = v[1]; document.getElementById('otherHeading').textContent = v[2]; document.getElementById('otherContent').innerHTML = v[3] } }));
+        document.getElementById('publish').addEventListener('click', () => { const t = document.getElementById('newPost'); const v = t.value.trim(); if (!v) { notice('Najpierw wpisz wiadomo??.'); return } const article = document.createElement('article'); article.className = 'feed'; const top = document.createElement('div'); top.className = 'feedtop'; top.innerHTML = '<div class="avatar" style="width:43px;height:43px;border-radius:3px;font-size:18px">AK</div><div><a class="feedname" href="#">Anna Kowalska</a><div class="feedtime">Przed chwil?</div></div>'; const p = document.createElement('p'); p.textContent = v; article.append(top, p); document.getElementById('feedList').prepend(article); t.value = ''; notice('Wpis dodany do makiety!') });
+        document.addEventListener('click', e => { const b = e.target.closest('.like,.comment,[data-action],#profileButton'); if (b) { e.preventDefault(); if (b.classList.contains('like')) { b.textContent = b.textContent.startsWith('?') ? '? Lubisz to' : '? Lubi? to'; return } notice(b.dataset.action ? `${b.dataset.action} ? widok demonstracyjny` : 'To funkcja demonstracyjna.') } });
+        document.getElementById('search').addEventListener('input', e => { let q = e.target.value.toLocaleLowerCase('pl'); document.querySelectorAll('.friend').forEach(f => f.classList.toggle('hidden', !f.dataset.name.includes(q))) });
+    </script>
+</body>
+
+</html>
